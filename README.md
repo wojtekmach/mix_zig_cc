@@ -13,7 +13,7 @@ examples/hello/priv/hello_nif-x86_64-linux.so:  ELF 64-bit LSB shared object, x8
 examples/hello/priv/hello_nif-x86_64-macos.so:  Mach-O 64-bit dynamically linked shared library x86_64
 ```
 
-See [`examples/hello/mix.exs`](examples/hello/mix.exs).
+See [`examples/hello/c_src/hello_nif.c`](examples/hello/c_src/hello_nif.c), [`examples/hello/mix.exs`](examples/hello/mix.exs).
 
 ## Usage
 
