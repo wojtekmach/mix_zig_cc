@@ -38,7 +38,9 @@ defmodule Hello.MixProject do
 
   @targets [
     {"aarch64", "linux", "gnu"},
+    {"aarch64", "linux", "musl"},
     {"x86_64", "linux", "gnu"},
+    {"x86_64", "linux", "musl"},
     {"x86_64", "macos", "gnu"}
   ]
 
