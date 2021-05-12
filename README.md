@@ -1,5 +1,7 @@
 # MixZigCC
 
+See [`examples/hello/mix.exs`](examples/hello/mix.exs).
+
 ## Usage
 
     iex> Mix.install([{:hello, github: "wojtekmach/mix_zig_cc", sparse: "examples/hello"}])
