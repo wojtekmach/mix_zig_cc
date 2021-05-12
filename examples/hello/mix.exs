@@ -37,11 +37,9 @@ defmodule Hello.MixProject do
   end
 
   @targets [
-    {"aarch64", "linux", "gnu"},
-    {"aarch64", "linux", "musl"},
-    {"x86_64", "linux", "gnu"},
-    {"x86_64", "linux", "musl"},
-    {"x86_64", "macos", "gnu"}
+    {"aarch64", "linux"},
+    {"x86_64", "linux"},
+    {"x86_64", "macos"}
   ]
 
   def zig_cc do
@@ -57,12 +55,12 @@ defmodule Hello.MixProject do
   end
 
   defp cmd(input, output, target) do
-    {arch, os, abi} = target
+    {arch, os} = target
     include = Path.join([:code.root_dir(), "erts-#{:erlang.system_info(:version)}", "include"])
 
     context =
       case target do
-        {_, "macos", _} ->
+        {_, "macos"} ->
           # TODO: https://github.com/ziglang/zig/issues/8728
           %{
             opts: "-shared",
@@ -76,7 +74,7 @@ defmodule Hello.MixProject do
           }
       end
 
-    target = "#{arch}-#{os}-#{abi}"
+    target = "#{arch}-#{os}"
     output = "#{output}-#{target}.so"
     force = false
     opts = "-o #{output} -target #{target} -I#{include} -shared"
@@ -93,10 +91,10 @@ defmodule Hello.MixProject do
       [cpu, _vendor, os | _] ->
         os = if List.starts_with?(os, 'darwin'), do: 'macos', else: os
         cpu = if os == 'macos' and List.starts_with?(cpu, 'arm'), do: 'aarch64', else: cpu
-        "#{cpu}-#{os}-gnu"
+        "#{cpu}-#{os}"
 
       ['win32'] ->
-        "x86_64-windows-gnu"
+        "x86_64-windows"
     end
   end
 end
