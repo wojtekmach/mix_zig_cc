@@ -6,13 +6,6 @@ A proof of concept of using [`zig cc`](https://andrewkelley.me/post/zig-cc-power
 - `x86_64-linux`
 - `x86_64-macos`
 
-```
-% file examples/hello/priv/hello_nif-*
-examples/hello/priv/hello_nif-aarch64-linux.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, not stripped
-examples/hello/priv/hello_nif-x86_64-linux.so:  ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, not stripped
-examples/hello/priv/hello_nif-x86_64-macos.so:  Mach-O 64-bit dynamically linked shared library x86_64
-```
-
 See [`examples/hello/c_src/hello_nif.c`](examples/hello/c_src/hello_nif.c), [`examples/hello/mix.exs`](examples/hello/mix.exs).
 
 ## Usage
